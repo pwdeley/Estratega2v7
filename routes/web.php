@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\UsuarioController;
 use App\Http\Controllers\Backend\VendedorController;
 use App\Http\Controllers\Backend\AdminPerfilController;
+use App\Http\Controllers\Backend\CompraController;
+use App\Http\Controllers\Backend\FacturaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,12 +62,15 @@ Route::middleware(['auth', 'rol:vendedor'])->group(function () {
 Route::middleware(['auth', 'rol:usuario'])->group(function () {
     Route::get('/usuario/dashboard', [UsuarioController::class, 'dashboard'])->name('usuario.dashboard');
     Route::get('/usuario/Layout', [UsuarioController::class, 'Layout'])->name('usuario.Layout');
-    Route::get('/usuario/factura', [UsuarioController::class, 'factura'])->name('usuario.factura');
-    Route::get('/usuario/compra', [UsuarioController::class, 'compra'])->name('usuario.compra');
-    Route::get('/usuario/cargarCompra', [UsuarioController::class, 'cargarCompra'])->name('usuario.cargarCompra');
-    Route::get('/usuario/compra-nueva', [UsuarioController::class, 'cargarCompra'])->name('usuario.compra-nueva');
+    //Rutas protegidas de ventas:
+    Route::get('/usuario/factura', [FacturaController::class, 'factura'])->name('usuario.factura');
+    Route::post('/usuario/factura', [FacturaController::class, 'store'])->name('factura.store');
 
-    Route::get('/usuario/compra',[UsuarioController::class,'compra']);
-    Route::post('/usuario/compra',[UsuarioController::class,'store'])->name('compra.store');
-    Route::get('/usuario/compra/descargar/{name}',[UsuarioController::class,'downloadFile'])->name('download');
+
+    //Rutas protegidas de compras:
+    Route::get('/usuario/compra', [CompraController::class, 'compra'])->name('usuario.compra');
+    Route::get('/usuario/compra-nueva', [CompraController::class, 'cargarCompra'])->name('usuario.compra-nueva');
+    Route::get('/usuario/compra',[CompraController::class,'compra']);
+    Route::post('/usuario/compra',[CompraController::class,'store'])->name('compra.store');
+    Route::get('/usuario/compra/descargar/{name}',[CompraController::class,'downloadFile'])->name('download');
 });
