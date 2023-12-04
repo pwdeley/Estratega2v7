@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\UsuarioController;
+use App\Http\Controllers\Backend\VendedorController;
+use App\Http\Controllers\Backend\AdminPerfilController;
 
 /*
 |--------------------------------------------------------------------------

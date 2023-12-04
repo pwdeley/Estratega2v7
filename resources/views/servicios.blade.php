@@ -1,4 +1,4 @@
-@extends('principal.app')
+@extends('../principal.app')
 
 @section('tituloServicios')
     <section class="section bg-default section-md">

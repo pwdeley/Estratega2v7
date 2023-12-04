@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 var sparkline_values = [10, 7, 4, 8, 5, 8, 6, 5, 2, 4, 7, 4, 9, 6, 5, 9];
@@ -236,4 +237,4 @@ $('#visitorMap').vectorMap(
     ca: '<div class="jqvmap-circle"></div>',
     tr: '<div class="jqvmap-circle"></div>',
   },
-});
+});*/

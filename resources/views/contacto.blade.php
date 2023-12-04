@@ -1,5 +1,5 @@
 
-@extends('principal.app')
+@extends('../principal.app')
 
 @section('tituloContacto')
     <section class="section bg-default section-md">
